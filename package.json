@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-mocha": "^8.1.0",
     "eslint-plugin-sinon": "^0.2.0"
   }
 }
