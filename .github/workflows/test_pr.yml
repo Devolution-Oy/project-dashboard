@@ -1,0 +1,26 @@
+name: Project-dashboard PR test
+
+on: pull_request
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    env:
+      CI: 1
+    steps:
+      - uses: actions/checkout@master
+        with:
+            submodules: true
+      - uses: actions/setup-node@master
+      - name: Install front end dependencies 
+        run: npm ci
+      - name: Front-end unittests
+        run: npm run test
+      - name: Build front-end
+        run: npm run build
+      - name: Deploy firebase to PR env
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy -P roster-pr --only hosting:project-dashboard-pr
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -29,8 +29,7 @@
     ],
     "rules": {
         "indent": [
-            "error",
-            2
+            "off"
         ],
         "react/react-in-jsx-scope": "off",
         "linebreak-style": [
