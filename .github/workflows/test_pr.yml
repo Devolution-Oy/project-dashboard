@@ -17,7 +17,7 @@ jobs:
       - name: Front-end unittests
         run: npm run test
       - name: Eslint test
-        run: eslint --ext .jsx --ext .js .
+        run: ./node_modules/.bin/eslint --ext .jsx --ext .js .
       - name: Build front-end
         run: npm run build
       - name: Deploy firebase to PR env
