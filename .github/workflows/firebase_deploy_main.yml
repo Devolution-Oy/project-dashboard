@@ -17,7 +17,7 @@ jobs:
       - name: Install front end dependencies 
         run: npm ci
       - name: Front-end unittests
-        run: npm run test
+        run: npm run test -- --coverage
       - name: Eslint test
         run: ./node_modules/.bin/eslint --ext .jsx --ext .js .
       - name: Build front-end
@@ -25,6 +25,6 @@ jobs:
       - name: Deploy firebase to staging env
         uses: w9jds/firebase-action@master
         with:
-          args: deploy -P roster-test --only hosting:project-dashboard-test
+          args: deploy -P devolution-roster --only hosting:devolution-project-dashboard
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
