@@ -7,7 +7,7 @@ function Landing() {
         <p>Landing page</p>
       </main>
     </div>
-
+    
   );
 }
 export default Landing;
