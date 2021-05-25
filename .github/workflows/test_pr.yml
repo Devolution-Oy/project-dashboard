@@ -15,7 +15,7 @@ jobs:
       - name: Install front end dependencies 
         run: npm ci
       - name: Front-end unittests
-        run: npm run test
+        run: npm run test -- --coverage
       - name: Eslint test
         run: ./node_modules/.bin/eslint --ext .jsx --ext .js .
       - name: Build front-end
