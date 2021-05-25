@@ -25,6 +25,26 @@ jobs:
       - name: Deploy firebase to staging env
         uses: w9jds/firebase-action@master
         with:
-          args: deploy -P devolution-roster --only hosting:devolution-project-dashboard
+          args: deploy -P roster-test --only hosting:project-dashboard-test
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+  deploy_production:
+    needs: staging
+    runs-on: ubuntu-latest
+    env:
+      CI: 1
+    steps:
+    - uses: actions/checkout@master
+      with:
+        submodules: true
+    - uses: actions/setup-node@master
+    - run: npm ci 
+    - run: npm run test -- --coverage
+    - run: npm run build
+    - name: Deploy firebase to production
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy -P devolution-roster --only hosting:devolution-project-dashboard
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
