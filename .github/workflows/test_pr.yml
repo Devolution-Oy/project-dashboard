@@ -15,7 +15,7 @@ jobs:
       - name: Install front end dependencies 
         run: npm ci
       - name: Front-end unittests
-        run: npm run test
+        run: npm run test -- --coverage
       - name: Build front-end
         run: npm run build
       - name: Deploy firebase to PR env
