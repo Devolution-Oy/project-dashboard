@@ -12,7 +12,7 @@ function App() {
       <div>
         <main className='main-content'>
           <Route exact path={ROUTES.LANDING} component={Landing} />
-          <p>Hello</p>
+          <p>Hello world!</p>
         </main>
       </div>
     </Router>
