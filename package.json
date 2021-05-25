@@ -40,5 +40,13 @@
     "eslint-plugin-mocha": "^8.1.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-sinon": "^0.2.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+    "/*.{js,jsx}",
+    "!/node_modules/**",
+    "!src/index.js",
+    "!src/reportWebVitals.js"
+    ]
   }
 }
