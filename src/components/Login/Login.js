@@ -17,7 +17,7 @@ function Login() {
           <input type="password" name="password" placeholder="password" />
         </label>
         <br></br>
-        <input type="submit" value="Envoyer" />
+        <input type="submit" value="Submit" data-testid="submit"/>
       </form>
     </div>
 
