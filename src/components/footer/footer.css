@@ -1,0 +1,41 @@
+.address {
+    font-size: 24px;
+    margin: 0px 0 0 76px;
+    }
+.email {
+    font-size: 24px;
+    margin: 0px 0 0 76px;
+    }
+.phone {
+    font-size: 24px;
+    margin: 0px 0 0 50px;
+    }
+.CompanyNb {
+    font-size: 24px;
+    margin: 0px 0 0 50px;
+    }
+.Conf {
+    font-size: 24px;
+    margin: 0px 0 0 383px;
+    }
+h1 {
+    font-size: 55px;
+    margin: 0px 0px 12px 76px;
+    }
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:white;
+}
+.CompanyInfo {
+    margin: 0;
+    padding: 1rem 0;
+    list-style: none;
+}
+
+.CompanyInfo li{
+    display: inline;
+}
+    
