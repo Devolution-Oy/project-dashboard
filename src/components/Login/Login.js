@@ -6,15 +6,17 @@ function Login() {
       <main className='main-content'>
         <p>Login page</p>
       </main>
-      <form>
+      <form method="post">
         <label>
           Email :
-          <input type="email" name="email" />
+          <input type="email" name="email" placeholder="email"/>
         </label>
+        <br></br>
         <label>
           Password :
-          <input type="password" name="password" />
+          <input type="password" name="password" placeholder="password" />
         </label>
+        <br></br>
         <input type="submit" value="Envoyer" />
       </form>
     </div>

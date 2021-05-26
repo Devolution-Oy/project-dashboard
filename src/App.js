@@ -1,6 +1,5 @@
 import './App.css';
 import Landing from './Pages/Landing';
-import Login from './components/Login/Login';
 
 import React from 'react';
 import {
@@ -14,7 +13,6 @@ function App() {
       <div>
         <main className='main-content'>
           <Route exact path={ROUTES.LANDING} component={Landing} />
-          <Route exact path={ROUTES.LANDING} component={Login} />
           <p>Hello world!</p>
         </main>
       </div>
