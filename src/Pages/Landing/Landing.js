@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header';
 function Landing() {
   return (
     <div>
-      <main data-testid='main-content'>
+      <main className='main-content' data-testid='main-content'>
         <Header />
         <Login />
       </main>

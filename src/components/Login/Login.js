@@ -7,23 +7,21 @@ function Login() {
       </main>
       <form method="post">
         <div className = "inputCenter">
-          <label>
-            <div className = "emailText">
-              Email :
-            </div>
-            <input type="email" name="email" placeholder="Email address"/>
-          </label>
-          <br></br>
-          <label>
-            <div className = "passwordText">
-              Password :
-            </div>
-            <input type="password" name="password" placeholder="Password" />
-          </label>
-        </div>
-        <br></br>
-        <div className = "buttonCenter">
-          <input className = "button" type="submit" value="Log In" data-testid="submit"/>
+          <div className = "inputLogin">
+            <label>
+                Email
+              <br></br>
+              <input type="email" name="email" placeholder="Email address"/>
+            </label>
+            <br></br><br></br>
+            <label>
+                Password
+              <br></br>
+              <input type="password" name="password" placeholder="Password" />
+            </label>
+            <br></br>
+            <input className = "button" type="submit" value="Log In" data-testid="submit"/>
+          </div>
         </div>
       </form>
     </div>
