@@ -6,8 +6,8 @@ function Landing() {
     <div>
       <main className='main-content'>
         <Header />
-        <p>Landing page</p>
         <Login />
+        Landing
       </main>
     </div>
     
