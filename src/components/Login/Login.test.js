@@ -7,7 +7,7 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
   const email = screen.getByPlaceholderText(/Email address/i);
   expect(email).toBeInTheDocument();
-  const password = screen.getByPlaceholderText(/••••••••••/i);
+  const password = screen.getByPlaceholderText(/Password/i);
   expect(password).toBeInTheDocument();
   const submit = screen.getByTestId(/submit/i);
   expect(submit).toBeInTheDocument();
