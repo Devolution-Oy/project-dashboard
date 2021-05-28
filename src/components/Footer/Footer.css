@@ -1,40 +1,46 @@
 .address {
     font-size: 24px;
-    margin: 0px 0 0 76px;
+    margin-left: 7%;
   }
 .email {
     font-size: 24px;
-    margin: 0px 0 0 76px;
+    margin-left: 7%;
     }
 .phone {
     font-size: 24px;
-    margin: 0px 0 0 50px;
+    margin-left: 7%;
     }
 .CompanyNb {
     font-size: 24px;
-    margin: 0px 0 0 50px;
+    margin-left: 7%;
     }
 .Conf {
     font-size: 24px;
-    margin: 0px 0 0 383px;
+    margin-left: 15%;
     }
 h1 {
     font-size: 55px;
-    margin: 0px 0px 12px 76px;
+    margin: 0px 0px 0 7%;
     }
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  background-color:white;
+  word-break: break-all
 }
 .CompanyInfo {
-    margin: 0;
-    padding: 1rem 0;
+    padding: 0 0;
     list-style: none;
 }
 
 .CompanyInfo li{
     display: inline;
 }
+
+@media only screen and (max-width: 600px) {
+    .Conf {
+        font-size: 24px;
+        margin-left: 7%;
+        }
+    .CompanyInfo li{
+        display: block;
+    }
+  }
