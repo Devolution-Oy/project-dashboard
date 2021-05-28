@@ -9,7 +9,7 @@ function Footer() {
         <li className = 'email'>info@devolution.fi</li>
         <li className = 'phone'>+358 44 280 0489</li>
         <li className = 'CompanyNb'>Y-tunnus: 3129924-4</li>
-        <li className = 'Conf'><a href="https://devolution.fi/tietosuojaseloste/"> Tietosuojaseloste</a></li>
+        <li className = 'Conf'><a href="https://devolution.fi/tietosuojaseloste/">Tietosuojaseloste</a></li>
       </ul>
     </footer>
   );
