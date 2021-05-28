@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <h1>FIND US</h1>
-      <p className = 'address' >Rautatienkatu 21 B, 5. krs. <br></br>33100 Tampere </p>
+      <p className = 'address' >Rautatienkatu 21 B, 5. krs.<br></br>33100 Tampere</p>
       <ul className = 'CompanyInfo'>
         <li className = 'email'>info@devolution.fi</li>
         <li className = 'phone'>+358 44 280 0489</li>

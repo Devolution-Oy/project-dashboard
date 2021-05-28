@@ -11,7 +11,6 @@ function Landing() {
         <Footer />
       </main>
     </div>
-    
   );
 }
 export default Landing;
