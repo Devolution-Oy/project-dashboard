@@ -1,0 +1,42 @@
+.button {
+  background-color: #EC6607;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 51px;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+  padding: 2px 2px 2px 2px;
+}
+
+.inputCenter{
+    margin-top: 40px;
+    text-align:center;
+}
+
+.inputLogin{
+  text-align: left;
+  width: 50%;
+  display:inline-block;
+}
+
+.inputCenter label {
+    font-size: 32px;
+}
+
+input[type=email], input[type=password] {
+  width: 99%;
+  padding: 2px 2px 2px 2px;
+  height: 51px;
+}
+
+input[type=email] {
+  font-size: 28px;
+  }
+
+  
+input[type=password] {
+  font-size: 28px;
+  }

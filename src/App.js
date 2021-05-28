@@ -10,13 +10,12 @@ import {
 import * as ROUTES from './constants/routes';
 function App() {
   return (
-    <Router>
+    <Router data-testid='main-content'>
       <div>
         <main className='main-content'>
           <Route exact path={ROUTES.LANDING} component={Landing} />
           <Route exact path={ROUTES.MAIN} component={Main} />
           <Route exact path={ROUTES.PROJECT} component={Project} />
-          <p>Hello world!</p>
         </main>
       </div>
     </Router>

@@ -3,11 +3,11 @@ import Login from './Login';
 
 test('renders learn react link', () => {
   render(<Login/>);
-  const linkElement = screen.getByText(/Login/i);
+  const linkElement = screen.getByText(/Email/i);
   expect(linkElement).toBeInTheDocument();
-  const email = screen.getByPlaceholderText(/email/i);
+  const email = screen.getByPlaceholderText(/Email address/i);
   expect(email).toBeInTheDocument();
-  const password = screen.getByPlaceholderText(/password/i);
+  const password = screen.getByPlaceholderText(/Password/i);
   expect(password).toBeInTheDocument();
   const submit = screen.getByTestId(/submit/i);
   expect(submit).toBeInTheDocument();

@@ -3,6 +3,6 @@ import Landing from './Landing';
 
 test('renders learn react link', () => {
   render(<Landing/>);
-  const linkElement = screen.getByText(/Landing/i);
+  const linkElement = screen.getByTestId(/main-content/i);
   expect(linkElement).toBeInTheDocument();
 });
