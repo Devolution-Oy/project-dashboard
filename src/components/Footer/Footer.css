@@ -43,4 +43,9 @@ footer {
     .CompanyInfo li{
         display: block;
     }
+    footer {
+        width: 100%;
+        word-break: break-all;
+        text-align: center;
+      }
   }
