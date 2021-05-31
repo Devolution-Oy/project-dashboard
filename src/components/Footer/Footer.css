@@ -46,5 +46,10 @@ footer {
     }
     footer {
         text-align: center;
+        width: 100%;
+        word-break: break-all;
+        bottom: 0;
+        position: relative;
+        margin-top: 10%;
       }
   }

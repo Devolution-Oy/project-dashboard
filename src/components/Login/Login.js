@@ -2,9 +2,7 @@ import React from 'react';
 import './Login.css';
 function Login() {
   return (
-    <div>
-      <main className='main-content'>
-      </main>
+    <div className = "LoginAll">
       <form method="post">
         <div className = "inputCenter">
           <div className = "inputLogin">
