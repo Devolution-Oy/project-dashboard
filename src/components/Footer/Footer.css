@@ -25,12 +25,8 @@ h1 {
 footer {
   width: 100%;
   word-break: break-all;
-  bottom: auto;
-  clear: both;
-  position: relative;
-  z-index: 1;
-  height: -3em;
-  margin-top: 40em;
+  bottom: 0;
+  position: absolute;
 }
 .CompanyInfo {
     padding: 0 0;
