@@ -1,29 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Login.css';
-function Login() {
-  return (
-    <div className = "LoginAll">
-      <form method="post">
-        <div className = "inputCenter">
-          <div className = "inputLogin">
-            <label>
+import PropTypes from 'prop-types';
+import { withFirebase } from '../Firebase';
+
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
+  onLogin = () => {
+    const { email, password } = this.state;
+    this.props.firebase.login(email, password).then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+  render() {
+    return (
+      <div className="LoginAll">
+        <form method="post">
+          <div className="inputCenter">
+            <div className="inputLogin">
+              <label>
                 Email
-              <br></br>
-              <input type="email" name="email" placeholder="Email address"/>
-            </label>
-            <br></br><br></br>
-            <label>
+              </label>
+              <br />
+              <input type="email" name="email" placeholder="Email address" />
+              <br /><br />
+              <label>
                 Password
+              </label>
               <br></br>
               <input type="password" name="password" placeholder="Password" />
-            </label>
-            <br></br>
-            <input className = "button" type="submit" value="Log In" data-testid="submit"/>
+              <br></br>
+              <input onClick={this.onLogin} className="button" type="button" value="Log In" data-testid="submit" />
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
 
-  );
+    );
+  }
 }
-export default Login;
+
+Login.propTypes = {
+  firebase: PropTypes.object.isRequired
+};
+
+export default withFirebase(Login);
