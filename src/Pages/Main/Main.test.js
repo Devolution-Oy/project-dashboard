@@ -3,6 +3,6 @@ import Main from './Main';
 
 test('renders learn react link', () => {
   render(<Main/>);
-  const linkElement = screen.getByText(/Main/i);
+  const linkElement = screen.getByText(/Design/i);
   expect(linkElement).toBeInTheDocument();
 });
