@@ -22,6 +22,7 @@ const authObject = {
   })
 };
 
+
 const app = {
   initializeApp: jest.fn(),
   auth: () => {
