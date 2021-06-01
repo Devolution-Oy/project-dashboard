@@ -1,4 +1,7 @@
 import app from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/functions';
 
 const prodConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -64,6 +67,13 @@ default:
 class Firebase {
   constructor() {
     app.initializeApp(config);
+    this.auth = app.auth();
   }
+
+
+  testLogin = (email, password) => {
+    return this.auth.signInWithEmailAndPassword(email, password);
+  };
+  
 }
 export default Firebase;
