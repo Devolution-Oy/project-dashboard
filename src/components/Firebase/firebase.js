@@ -71,7 +71,7 @@ class Firebase {
   }
 
 
-  Login = (email, password) => {
+  login = (email, password) => {
     return this.auth.signInWithEmailAndPassword(email, password);
   };
   

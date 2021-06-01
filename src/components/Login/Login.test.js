@@ -11,6 +11,6 @@ test('renders learn react link', () => {
   const password = screen.getByPlaceholderText(/Password/i);
   expect(password).toBeInTheDocument();
   const btnLogin = document.getElementById('btn_submit');
-  expect(document.getElementById('password')).not.toBeTruthy();
+  expect(document.getElementById('btn_submit')).not.toBeTruthy();
   Simulate.click(btnLogin);
 });
