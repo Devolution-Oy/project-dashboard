@@ -20,12 +20,13 @@ const authObject = {
   setAuthUser: jest.fn((user) => {
     userChangedCb(user);
   })
-}
+};
 
 const app = {
   initializeApp: jest.fn(),
   auth: () => {
-    return authObject }
-}
+    return authObject;
+  }
+};
 
 export default app;
