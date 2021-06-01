@@ -1,7 +1,10 @@
 var userChangedCb = null;
 
+export const signInCalled = jest.fn();
+
 const authObject = {
   signInWithEmailAndPassword: async (email, pw) => {
+    signInCalled();
     if (email && pw)
       return Promise.resolve('Hello');
     else {
