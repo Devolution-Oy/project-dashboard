@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   password: ''
 };
 
-class TestLogin extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
@@ -21,7 +21,7 @@ class TestLogin extends Component {
     event.preventDefault();
     const { email, password } = this.state;
 
-    this.props.firebase.testLogin(email, password).then(() => {
+    this.props.firebase.Login(email, password).then(() => {
  
       this.props.history.push(ROUTES.MAIN);
 
@@ -54,7 +54,7 @@ class TestLogin extends Component {
                 <input type="password" value={this.state.password} name="password" placeholder="Password" id='password' onChange={this.onChange}/>
               </label>
               <br></br>
-              <button className = "button" type="submit" id='btn_submit' data-testid="submit">Log In</button>
+              <button className = "button" type="submit" id='btn_submit'>Log In</button>
             </div>
           </div>
         </form>
@@ -64,9 +64,9 @@ class TestLogin extends Component {
   }
 }
 
-TestLogin.propTypes = {
+Login.propTypes = {
   firebase: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
 
-export default withRouter(withFirebase(TestLogin));
+export default withRouter(withFirebase(Login));
