@@ -7,7 +7,7 @@ function Main() {
     <div>
       <main className='main-content'>
         <Header />
-        <p>Main page</p>
+        Main Page
         <Footer />
       </main>
     </div>
