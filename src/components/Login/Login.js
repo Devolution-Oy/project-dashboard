@@ -21,7 +21,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
 
-    this.props.firebase.Login(email, password).then(() => {
+    this.props.firebase.login(email, password).then(() => {
  
       this.props.history.push(ROUTES.MAIN);
 
