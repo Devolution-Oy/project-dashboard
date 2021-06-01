@@ -27,6 +27,7 @@ footer {
   word-break: break-all;
   bottom: 0;
   position: absolute;
+  background-color: white; 
 }
 .CompanyInfo {
     padding: 0 0;
