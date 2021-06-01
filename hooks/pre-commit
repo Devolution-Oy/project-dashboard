@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd roster-front
 for file in $(git diff --cached --name-only | grep -E '\.(js|jsx)$')
 do
   echo $PWD
