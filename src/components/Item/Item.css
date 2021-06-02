@@ -2,12 +2,11 @@
     box-sizing: border-box;
   }
   
-  /* Create three equal columns that floats next to each other */
   .column {
     float: left;
     width: 200px;
     padding: 10px;
-    height: 200px; /* Should be removed. Only for demonstration */
+    height: 200px;
     background-color: #FF9A00;
   }
   
