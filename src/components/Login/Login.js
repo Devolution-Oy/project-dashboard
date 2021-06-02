@@ -10,6 +10,7 @@ class Login extends Component {
       email: '',
       password: ''
     };
+    this.setState({error: ''});
   }
 
   login = () => {
@@ -17,14 +18,14 @@ class Login extends Component {
     this.props.firebase.login(email, password).then(res => {
       console.log(res);
     }).catch(error => {
-      if (error.code === 'auth/wrong-password') {
+      if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
         this.setState({error: 'Wrong password or email.'});
       }
       else if (error.code === 'auth/invalid-email') {
         this.setState({error: 'Invalid email.'});
       }
-      else if (error.code === 'auth/user-not-found') {
-        this.setState({error: 'Wrong password or email.'});
+      else if (error.code === 'auth/too-many-requests') {
+        this.setState({error: 'Too many requests, your account has been temporarily disabled, please reset your password or try again later.'});
       }
       else {
         this.setState({error: error.message});
