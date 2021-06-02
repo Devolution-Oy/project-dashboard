@@ -1,0 +1,1 @@
+export const validEmail = 'email@email.com';
