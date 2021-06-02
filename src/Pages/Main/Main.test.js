@@ -1,10 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import Main from './Main';
 
-test('renders learn react link', () => {
+test('renders learn ListItem', () => {
   render(<Main/>);
-  const linkElement = screen.getByText(/Main Page/i);
-  expect(linkElement).toBeInTheDocument();
-  const Item = screen.getByTestId('TestItem');
-  expect(Item).toBeInTheDocument();
+  const ListItem = screen.getByTestId('List');
+  expect(ListItem).toBeInTheDocument();
+  const Footer = screen.getByText(/Find us/i);
+  expect(Footer).toBeInTheDocument();
+  const Header = screen.getByAltText(/LogoDevolution/i);
+  expect(Header).toBeInTheDocument();
 });

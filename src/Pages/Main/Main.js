@@ -8,7 +8,6 @@ function Main() {
     <div>
       <main className='main-content'>
         <Header />
-        Main Page
         <ListItem />
         <Footer />
       </main>
