@@ -5,8 +5,10 @@ import userEvent from '@testing-library/user-event';
 import { signInCalled } from '../../__mocks__/firebase/app';
 import Firebase, { FirebaseContext } from '../Firebase';
 
+import { validEmail } from '../../constants/testData';
+
 describe('Login Component', () => {
-  test('renders learn react link', () => {
+  test('Renders Login component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Login />
@@ -26,9 +28,21 @@ describe('Login Component', () => {
         <Login />
       </FirebaseContext.Provider>
     );
-    userEvent.type(screen.getByPlaceholderText('Email address'), 'email@email.com');
+    userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
     userEvent.type(screen.getByPlaceholderText('Password'), 'password');
     userEvent.click(screen.getByText('Log In'));
     expect(signInCalled).toHaveBeenCalled();
+  });
+  it('Invalid password login errors are handled', async () => {
+    render(
+      <FirebaseContext.Provider value={ new Firebase()}>
+        <Login />
+      </FirebaseContext.Provider>
+    );
+    userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
+    userEvent.type(screen.getByPlaceholderText('Password'), 'invalid');
+    userEvent.click(screen.getByText('Log In'));
+    const error = await screen.findByText('Wrong password or email.');
+    expect(error).toBeTruthy();
   });
 });
