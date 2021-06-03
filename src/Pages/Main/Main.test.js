@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Main from './Main';
 
-test('renders ListItem', () => {
+test('renders Main', () => {
   render(<Main/>);
   const DesignList = screen.getByTestId('List');
   expect(DesignList).toBeInTheDocument();
