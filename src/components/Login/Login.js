@@ -19,16 +19,16 @@ class Login extends Component {
       console.log(res);
     }).catch(error => {
       if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-        this.setState({error: 'Wrong password or email.'});
+        this.setState({ error: 'Wrong password or email.' });
       }
       else if (error.code === 'auth/invalid-email') {
-        this.setState({error: 'Invalid email.'});
+        this.setState({ error: 'Invalid email.' });
       }
       else if (error.code === 'auth/too-many-requests') {
-        this.setState({error: 'Too many requests, your account has been temporarily disabled, please reset your password or try again later.'});
+        this.setState({ error: 'Too many requests, your account has been temporarily disabled, please reset your password or try again later.' });
       }
       else {
-        this.setState({error: 'Unknown error.'});
+        this.setState({ error: 'Unknown error.' });
       }
       console.log(error);
     });
@@ -40,26 +40,20 @@ class Login extends Component {
   render() {
     return (
       <div className="LoginAll">
-        <form method="post">
-          <div className="inputCenter">
-            <div className="inputLogin">
-              <label>
-                Email
-              </label>
-              <br />
-              <input onChange={this.onChange} type="email" name="email" placeholder="Email address" />
-              <br /><br />
-              <label>
-                Password
-              </label>
-              <br></br>
-              <input onChange={this.onChange} type="password" name="password" placeholder="Password" />
-              <br></br>
-              <input onClick={this.login} className="button" type="button" value="Log In" data-testid="submit" />
-              {this.state.error ? <div><b><label style={{color: 'red'}}>{this.state.error}</label></b><br /></div> : null}
-            </div>
+        <div className="inputCenter">
+          <div className="inputLogin">
+            <label>
+              Email
+            </label>
+            <input onChange={this.onChange} type="email" name="email" placeholder="Email address" />
+            <label>
+              Password
+            </label>
+            <input onChange={this.onChange} type="password" name="password" placeholder="Password" />
+            <input onClick={this.login} className="button" type="button" value="Log In" data-testid="submit" />
+            {this.state.error ? <div><b><label style={{ color: 'red' }}>{this.state.error}</label></b><br /></div> : null}
           </div>
-        </form>
+        </div>
       </div>
 
     );
