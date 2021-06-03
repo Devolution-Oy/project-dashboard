@@ -1,7 +1,7 @@
 var userChangedCb = null;
 
 export const signInCalled = jest.fn();
-import { validEmail, validPassword } from '../../constants/testData';
+import { validEmail, validPassword, Invalid } from '../../constants/testData';
 
 const authObject = {
   signInWithEmailAndPassword: async (email, pw) => {
@@ -12,10 +12,10 @@ const authObject = {
       var error = {
         code: 'auth/unknown'
       };
-      if (email === validEmail && pw === 'invalid') {
+      if (email === validEmail && pw === Invalid) {
         error = { code: 'auth/wrong-password' };
       }
-      if (email === 'invalid' && pw === validPassword) {
+      if (email === Invalid && pw === validPassword) {
         error = { code: 'auth/invalid-email' };
       }
       if (email === 'not-found' && pw === validPassword) {

@@ -28,7 +28,7 @@ class Login extends Component {
         this.setState({error: 'Too many requests, your account has been temporarily disabled, please reset your password or try again later.'});
       }
       else {
-        this.setState({error: error.message});
+        this.setState({error: 'Unknown error.'});
       }
       console.log(error);
     });

@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { signInCalled } from '../../__mocks__/firebase/app';
 import Firebase, { FirebaseContext } from '../Firebase';
 
-import { validEmail, validPassword } from '../../constants/testData';
+import { validEmail, validPassword, Invalid } from '../../constants/testData';
 
 describe('Login Component', () => {
   test('Renders Login component', () => {
@@ -40,7 +40,7 @@ describe('Login Component', () => {
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
-    userEvent.type(screen.getByPlaceholderText('Password'), 'invalid');
+    userEvent.type(screen.getByPlaceholderText('Password'), Invalid);
     userEvent.click(screen.getByText('Log In'));
     const error = await screen.findByText('Wrong password or email.');
     expect(error).toBeTruthy();
@@ -51,7 +51,7 @@ describe('Login Component', () => {
         <Login />
       </FirebaseContext.Provider>
     );
-    userEvent.type(screen.getByPlaceholderText('Email address'), 'invalid');
+    userEvent.type(screen.getByPlaceholderText('Email address'), Invalid);
     userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
     const error = await screen.findByText('Invalid email.');
@@ -67,6 +67,18 @@ describe('Login Component', () => {
     userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
     const error = await screen.findByText('Wrong password or email.');
+    expect(error).toBeTruthy();
+  });
+  it('Unknown login errors are handled', async () => {
+    render(
+      <FirebaseContext.Provider value={ new Firebase()}>
+        <Login />
+      </FirebaseContext.Provider>
+    );
+    userEvent.type(screen.getByPlaceholderText('Email address'), Invalid);
+    userEvent.type(screen.getByPlaceholderText('Password'), Invalid);
+    userEvent.click(screen.getByText('Log In'));
+    const error = await screen.findByText('Unknown error.');
     expect(error).toBeTruthy();
   });
 });
