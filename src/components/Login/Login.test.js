@@ -4,6 +4,10 @@ import Login from './Login';
 import userEvent from '@testing-library/user-event';
 import { signInCalled } from '../../__mocks__/firebase/app';
 import Firebase, { FirebaseContext } from '../Firebase';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
+import { AuthContext } from '../Session';
 
 import { validEmail, validPassword, invalidPassword, invalidEmail } from '../../constants/testData';
 
@@ -11,7 +15,11 @@ describe('Login Component', () => {
   test('Renders Login component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
-        <Login />
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
       </FirebaseContext.Provider>);
     const linkElement = screen.getByText(/Email/i);
     expect(linkElement).toBeInTheDocument();
@@ -24,10 +32,13 @@ describe('Login Component', () => {
   });
   it('Calls firebase login when submit button is clicked', () => {
     render(
-      <FirebaseContext.Provider value={ new Firebase()}>
-        <Login />
-      </FirebaseContext.Provider>
-    );
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
+      </FirebaseContext.Provider>);
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
     userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
@@ -35,8 +46,12 @@ describe('Login Component', () => {
   });
   it('Invalid password login errors are handled', async () => {
     render(
-      <FirebaseContext.Provider value={ new Firebase()}>
-        <Login />
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
@@ -47,8 +62,12 @@ describe('Login Component', () => {
   });
   it('Invalid email login errors are handled', async () => {
     render(
-      <FirebaseContext.Provider value={ new Firebase()}>
-        <Login />
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), invalidEmail);
@@ -59,8 +78,12 @@ describe('Login Component', () => {
   });
   it('User not found login errors are handled', async () => {
     render(
-      <FirebaseContext.Provider value={ new Firebase()}>
-        <Login />
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), 'not-found');
@@ -71,8 +94,12 @@ describe('Login Component', () => {
   });
   it('Unknown login errors are handled', async () => {
     render(
-      <FirebaseContext.Provider value={ new Firebase()}>
-        <Login />
+      <FirebaseContext.Provider value={new Firebase()}>
+        <Router>
+          <AuthContext.Provider value={null} >
+            <Login />
+          </AuthContext.Provider>
+        </Router>
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), invalidEmail);

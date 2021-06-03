@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { withRouter } from 'react-router';
-import { withFirebase } from '../Firebase';
+import { withFirebase} from '../Firebase';
 import PropTypes from 'prop-types';
 import * as ROUTES from '../../constants/routes';
 
