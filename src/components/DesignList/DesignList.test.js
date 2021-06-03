@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import ListItem from './ListItem';
+import DesignList from './DesignList';
 
 test('renders learn Item', () => {
-  render(<ListItem/>);
+  render(<DesignList/>);
   const Item = screen.getByTestId('RowItem');
   expect(Item).toBeInTheDocument();
 });

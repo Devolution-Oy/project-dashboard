@@ -1,8 +1,8 @@
 import React from 'react';
-import './ListItem.css';
+import './DesignList.css';
 import Item from '../../components/Item/Item';
 import Columns from 'react-columns';
-function ListItem() {
+function DesignList() {
   var queries = [{
     columns: 1,
     query: 'min-width: 600px'
@@ -20,7 +20,7 @@ function ListItem() {
     query: 'min-width: 1400px'
   }];
   return (
-    <div data-testid = "List" className="CenterListItem">
+    <div data-testid = "List" className="CenterDesignList">
       <div className = "ColumnList">
         <Columns gap = {'40px'} queries={queries}>
           <Item />
@@ -38,4 +38,4 @@ function ListItem() {
     </div>
   );
 }
-export default ListItem;
+export default DesignList;

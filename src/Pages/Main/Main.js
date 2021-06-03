@@ -1,14 +1,14 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
-import ListItem from '../../components/ListItem/ListItem';
+import DesignList from '../../components/DesignList/DesignList';
 
 function Main() {
   return (
     <div>
       <main className='main-content'>
         <Header />
-        <ListItem />
+        <DesignList />
         <Footer />
       </main>
     </div>
