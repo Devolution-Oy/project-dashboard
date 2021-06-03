@@ -1,3 +1,4 @@
 export const validEmail = 'email@email.com';
 export const validPassword = 'password';
-export const Invalid = 'invalid';
+export const invalidPassword = 'invalidpassword';
+export const invalidEmail = 'invalidemail';
