@@ -56,7 +56,7 @@ class Login extends Component {
               <input onChange={this.onChange} type="password" name="password" placeholder="Password" />
               <br></br>
               <input onClick={this.login} className="button" type="button" value="Log In" data-testid="submit" />
-              {this.state.error ? <div><label style={{color: 'red'}}>{this.state.error}</label><br /></div> : null}
+              {this.state.error ? <div><b><label style={{color: 'red'}}>{this.state.error}</label></b><br /></div> : null}
             </div>
           </div>
         </form>

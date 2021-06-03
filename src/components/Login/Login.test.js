@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { signInCalled } from '../../__mocks__/firebase/app';
 import Firebase, { FirebaseContext } from '../Firebase';
 
-import { validEmail } from '../../constants/testData';
+import { validEmail, validPassword } from '../../constants/testData';
 
 describe('Login Component', () => {
   test('Renders Login component', () => {
@@ -29,7 +29,7 @@ describe('Login Component', () => {
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
-    userEvent.type(screen.getByPlaceholderText('Password'), 'password');
+    userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
     expect(signInCalled).toHaveBeenCalled();
   });
@@ -41,6 +41,30 @@ describe('Login Component', () => {
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
     userEvent.type(screen.getByPlaceholderText('Password'), 'invalid');
+    userEvent.click(screen.getByText('Log In'));
+    const error = await screen.findByText('Wrong password or email.');
+    expect(error).toBeTruthy();
+  });
+  it('Invalid email login errors are handled', async () => {
+    render(
+      <FirebaseContext.Provider value={ new Firebase()}>
+        <Login />
+      </FirebaseContext.Provider>
+    );
+    userEvent.type(screen.getByPlaceholderText('Email address'), 'invalid');
+    userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
+    userEvent.click(screen.getByText('Log In'));
+    const error = await screen.findByText('Invalid email.');
+    expect(error).toBeTruthy();
+  });
+  it('User not found login errors are handled', async () => {
+    render(
+      <FirebaseContext.Provider value={ new Firebase()}>
+        <Login />
+      </FirebaseContext.Provider>
+    );
+    userEvent.type(screen.getByPlaceholderText('Email address'), 'not-found');
+    userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
     const error = await screen.findByText('Wrong password or email.');
     expect(error).toBeTruthy();
