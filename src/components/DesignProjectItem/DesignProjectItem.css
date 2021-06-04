@@ -1,0 +1,9 @@
+.TitleProjectItem {
+    margin-left: 10%;
+}
+
+.TitleProjectItem p {
+    display: inline-block;
+    font-size: 32px;
+    margin-right: 80px;
+}
