@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin-bottom: 30px;
+  }
+  
+  .column {
+    float: left;
+    width: 200px;
+    padding: 10px;
+    height: 200px;
+    background-color: #FF9A00;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
