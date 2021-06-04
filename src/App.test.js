@@ -5,6 +5,14 @@ import Firebase, { FirebaseContext } from './components/Firebase';
 import userEvent from '@testing-library/user-event';
 import { validEmail, validPassword} from './constants/testData';
 
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches: false,
+    addListener: function() {},
+    removeListener: function() {}
+  };
+};
+
 describe('App', () => {
   test('renders learn react link', () => {
     render(
