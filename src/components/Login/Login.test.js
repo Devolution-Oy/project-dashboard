@@ -7,7 +7,6 @@ import Firebase, { FirebaseContext } from '../Firebase';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
-import { AuthContext } from '../Session';
 import { validEmail, validPassword, invalidPassword, invalidEmail } from '../../constants/testData';
 
 describe('Login Component', () => {
@@ -15,9 +14,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>);
     const linkElement = screen.getByText(/Email/i);
@@ -33,9 +30,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>);
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
@@ -47,9 +42,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>
     );
@@ -63,9 +56,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>
     );
@@ -79,9 +70,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>
     );
@@ -95,9 +84,7 @@ describe('Login Component', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
         <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
+          <Login />
         </Router>
       </FirebaseContext.Provider>
     );
