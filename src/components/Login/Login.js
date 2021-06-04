@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Login.css';
-import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router';
+import { withFirebase} from '../Firebase';
 import PropTypes from 'prop-types';
+import * as ROUTES from '../../constants/routes';
 
 class Login extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class Login extends Component {
   login = () => {
     const { email, password } = this.state;
     this.props.firebase.login(email, password).then(res => {
+      this.props.history.push(ROUTES.MAIN);
       console.log(res);
     }).catch(error => {
       if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
@@ -61,7 +64,8 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  firebase: PropTypes.object.isRequired
+  firebase: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
-export default withFirebase(Login);
+export default withRouter(withFirebase(Login));

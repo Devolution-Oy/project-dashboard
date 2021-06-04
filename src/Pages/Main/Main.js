@@ -6,7 +6,7 @@ import DesignList from '../../components/DesignList/DesignList';
 function Main() {
   return (
     <div>
-      <main className='main-content'>
+      <main className='main-content' data-testid='main'>
         <Header />
         <DesignList />
         <Footer />
