@@ -21,7 +21,7 @@ describe('Login Component', () => {
     userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
     userEvent.click(screen.getByText('Log In'));
     await flushPromises();
-    expect(screen.getByTestId('main')).toBeTruthy();
+    expect(screen.getByTestId('main')).toBeInTheDocument();
   });
 });
 export const flushPromises = () => new Promise(setImmediate);
