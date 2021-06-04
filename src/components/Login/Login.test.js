@@ -8,7 +8,6 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom';
 import { AuthContext } from '../Session';
-
 import { validEmail, validPassword, invalidPassword, invalidEmail } from '../../constants/testData';
 
 describe('Login Component', () => {
@@ -108,20 +107,5 @@ describe('Login Component', () => {
     const error = await screen.findByText('Unknown error.');
     expect(error).toBeTruthy();
   });
-  it('Successfull login', async () => {
-    render(
-      <FirebaseContext.Provider value={new Firebase()}>
-        <Router>
-          <AuthContext.Provider value={null} >
-            <Login />
-          </AuthContext.Provider>
-        </Router>
-      </FirebaseContext.Provider>
-    );
-    userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
-    userEvent.type(screen.getByPlaceholderText('Password'), validPassword);
-    userEvent.click(screen.getByText('Log In'));
-    const error = screen.findByTestId('main');
-    expect(error).toBeTruthy();
-  });
+
 });
