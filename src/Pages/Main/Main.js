@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 function Main() {
   return (
     <div>
-      <main className='main-content'>
+      <main className='main-content' data-testid='main'>
         <Header />
         Main Page
         <Footer />
