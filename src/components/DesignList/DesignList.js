@@ -1,6 +1,6 @@
 import React from 'react';
 import './DesignList.css';
-import Item from '../../components/Item/Item';
+import DesignItem from '../../components/DesignItem/DesignItem';
 import Columns from 'react-columns';
 function DesignList() {
   var queries = [{
@@ -23,16 +23,16 @@ function DesignList() {
     <div data-testid = "List" className="CenterDesignList">
       <div className = "ColumnList">
         <Columns gap = {'40px'} queries={queries}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
+          <DesignItem />
         </Columns>
       </div>
     </div>

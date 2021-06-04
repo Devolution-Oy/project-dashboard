@@ -11,6 +11,6 @@ window.matchMedia = window.matchMedia || function() {
 
 test('renders learn DesignList', () => {
   render(<DesignList/>);
-  const Item = screen.getByTestId('List');
-  expect(Item).toBeInTheDocument();
+  const DesignItem = screen.getByTestId('List');
+  expect(DesignItem).toBeInTheDocument();
 });
