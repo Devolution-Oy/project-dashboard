@@ -1,6 +1,6 @@
 import React from 'react';
-import './Item.css';
-function Item() {
+import './DesignItem.css';
+function DesignItem() {
   return (
     <div data-testid = "RowItem" className="row">
       <div className="column">
@@ -11,4 +11,4 @@ function Item() {
     </div>
   );
 }
-export default Item;
+export default DesignItem;
