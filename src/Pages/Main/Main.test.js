@@ -1,8 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import Main from './Main';
 
-test('renders learn react link', () => {
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches: false,
+    addListener: function() {},
+    removeListener: function() {}
+  };
+};
+
+test('renders Main', () => {
   render(<Main/>);
-  const linkElement = screen.getByText(/Main Page/i);
-  expect(linkElement).toBeInTheDocument();
+  const DesignList = screen.getByTestId('List');
+  expect(DesignList).toBeInTheDocument();
+  const Footer = screen.getByText(/Find us/i);
+  expect(Footer).toBeInTheDocument();
+  const Header = screen.getByAltText(/LogoDevolution/i);
+  expect(Header).toBeInTheDocument();
 });

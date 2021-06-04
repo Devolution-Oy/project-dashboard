@@ -1,0 +1,9 @@
+.CenterDesignList {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.ColumnList {
+    display: inline-block;
+    text-align: left;
+}
