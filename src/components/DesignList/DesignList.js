@@ -23,16 +23,16 @@ function DesignList() {
     <div data-testid = "List" className="CenterDesignList">
       <div className = "ColumnList">
         <Columns gap = {'40px'} queries={queries}>
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
-          <DesignItem />
+          <DesignItem title={'Hello'} budget={'999'} task={'task1'}/>
+          <DesignItem title={'Second'} budget={'998'} task={'task2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
+          <DesignItem title={'Hello'} budget={'999'} task={'task1 1/2'}/>
         </Columns>
       </div>
     </div>

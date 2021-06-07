@@ -11,8 +11,6 @@ window.matchMedia = window.matchMedia || function() {
 
 test('renders learn react link', () => {
   render(<DesignProjectItem/>);
-  const linkElement = screen.getByText(/Name/i);
-  expect(linkElement).toBeInTheDocument();
   const DesignItem = screen.getByTestId('List');
   expect(DesignItem).toBeInTheDocument();
 });
