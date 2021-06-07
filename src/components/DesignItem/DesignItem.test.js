@@ -3,10 +3,10 @@ import DesignItem from './DesignItem';
 
 test('Title, budget and task are rendered from string prop', () => {
   render(
-  <div>
-    <DesignItem title={'Hello'} budget={'999'} task={'task1'} />
-    <DesignItem title={'Second'} budget={'998'} task={'task2'} />
-  </div>);
+    <div>
+      <DesignItem title={'Hello'} budget={'999'} task={'task1'} />
+      <DesignItem title={'Second'} budget={'998'} task={'task2'} />
+    </div>);
   
   const title1 = screen.getByText(/Hello/i);
   expect(title1).toBeInTheDocument();
