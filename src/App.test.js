@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import Firebase, { FirebaseContext } from './components/Firebase';
 import userEvent from '@testing-library/user-event';
-import { validEmail, validPassword} from './constants/testData';
+import { flushPromises, validEmail, validPassword } from './constants/testData';
 
 window.matchMedia = window.matchMedia || function() {
   return {
@@ -36,4 +36,3 @@ describe('App', () => {
     expect(screen.getByTestId('main')).toBeInTheDocument();
   });
 });
-export const flushPromises = () => new Promise(setImmediate);
