@@ -13,25 +13,6 @@ const withAuthentication = Component => {
         authUser: null,
       };
     }
-
-    getUserData = authUser => {
-      this.props.firebase.getUserData(authUser.uid).then(user => {
-        const loggedUser = {
-          uid: authUser.uid,
-          data: user.data,
-          update: this.updateAuthUser
-        };
-        this.setState({authUser: loggedUser});
-      }).catch(error => {
-        console.log(error);
-        this.setState({authUser: null});
-      });
-    }
-
-    updateAuthUser = authUser => {
-      this.setState({authUser: authUser});
-    }
-
     
     componentDidMount() {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
