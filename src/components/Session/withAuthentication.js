@@ -14,6 +14,41 @@ const withAuthentication = Component => {
       };
     }
 
+    getUserData = authUser => {
+      this.props.firebase.getUserData(authUser.uid).then(user => {
+        const loggedUser = {
+          uid: authUser.uid,
+          data: user.data,
+          update: this.updateAuthUser
+        };
+        this.setState({authUser: loggedUser});
+      }).catch(error => {
+        console.log(error);
+        this.setState({authUser: null});
+      });
+    }
+
+    updateAuthUser = authUser => {
+      this.setState({authUser: authUser});
+    }
+
+    
+    componentDidMount() {
+      this.listener = this.props.firebase.auth.onAuthStateChanged(
+        authUser => {
+          authUser
+            ? this.getUserData(authUser)
+            : this.setState({authUser: null});
+        },
+      );
+    }
+
+    componentWillUnmount() {
+      this.listener = this.props.firebase.auth.onAuthStateChanged(
+        this.setState({authUser: null})
+      );
+    }
+    
     render() {
       return (
         <AuthContext.Provider value={this.state.authUser}>
