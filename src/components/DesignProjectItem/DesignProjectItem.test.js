@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import DesignProjectItem from './DesignProjectItem';
 
+<DesignItem header='Item header text' />;
+
 window.matchMedia = window.matchMedia || function() {
   return {
     matches: false,
