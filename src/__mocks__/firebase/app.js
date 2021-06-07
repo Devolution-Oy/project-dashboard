@@ -15,7 +15,7 @@ const authObject = {
       if (userChangedCb) {
         userChangedCb(testUser);
       }
-      return Promise.resolve('Hello');
+      return Promise.resolve(testUser);
     }
     else {
       var error = {
@@ -33,13 +33,11 @@ const authObject = {
       return Promise.reject(error);
     }
   },
-  onAuthStateChanged: jest.fn(callback => {
+  onAuthStateChanged: (callback) => {
     userChangedCb = callback;
-    console.log(userChangedCb);
     return resetCallBack;
-  }),
+  },
 };
-
 
 const app = {
   initializeApp: jest.fn(),
