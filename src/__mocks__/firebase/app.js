@@ -1,13 +1,22 @@
+import { testUser } from '../../constants/testData';
 var userChangedCb = null;
 
 export const signInCalled = jest.fn();
 import { validEmail, validPassword, invalidPassword, invalidEmail } from '../../constants/testData';
 
+const resetCallBack = () => {
+  userChangedCb = null;
+};
+
 const authObject = {
   signInWithEmailAndPassword: async (email, pw) => {
     signInCalled();
-    if (email === validEmail && pw === validPassword)
+    if (email === validEmail && pw === validPassword) {
+      if (userChangedCb) {
+        userChangedCb(testUser);
+      }
       return Promise.resolve('Hello');
+    }
     else {
       var error = {
         code: 'auth/unknown'
@@ -24,15 +33,11 @@ const authObject = {
       return Promise.reject(error);
     }
   },
-  onAuthStateChanged: jest.fn(cb => {
-    cb(null);
+  onAuthStateChanged: jest.fn(callback => {
+    userChangedCb = callback;
+    console.log(userChangedCb);
+    return resetCallBack;
   }),
-  onUserChanged: jest.fn((cb) => {
-    userChangedCb = cb;
-  }),
-  setAuthUser: jest.fn((user) => {
-    userChangedCb(user);
-  })
 };
 
 
