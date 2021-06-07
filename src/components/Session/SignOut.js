@@ -8,7 +8,7 @@ class Logout extends Component {
   }
 
   logout = () => {
-    this.firebase.doLogOut().then(res => {
+    this.firebase.doSignOut().then(res => {
       console.log(res);
     }).catch(error => {
       console.log(error);
