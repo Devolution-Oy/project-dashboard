@@ -9,3 +9,5 @@ export const testUser = {
 };
 
 export const flushPromises = () => new Promise(setImmediate);
+
+export const authUser = 'authUser';
