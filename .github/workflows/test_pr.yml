@@ -38,18 +38,6 @@ jobs:
 
 
 
-run: npm run test -- --coverage
-      - name: Eslint test
-        run: ./node_modules/.bin/eslint --ext .jsx --ext .js .
-      - name: Build front-end
-        run: npm run build
-      - name: Deploy firebase to PR env
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy -P roster-pr --only hosting:project-dashboard-pull-request
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
 name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
