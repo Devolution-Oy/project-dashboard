@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Firebase, { FirebaseContext } from '../Firebase';
 import { AuthContext } from '../../components/Session';
 import { testUser } from '../../constants/testData';
-import { signOutCalled } from '../../__mocks__/firebase/app';
+import { signOut } from '../../__mocks__/firebase/app';
 
 describe('LogOut Component', () => {
   test('renders logout button', () => {
@@ -23,6 +23,6 @@ describe('LogOut Component', () => {
         <SignOut />
       </FirebaseContext.Provider>);
     userEvent.click(screen.getByText('Log Out'));
-    expect(signOutCalled).toHaveBeenCalled();
+    expect(signOut).toHaveBeenCalled();
   });
 });
