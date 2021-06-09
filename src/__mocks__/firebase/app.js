@@ -2,6 +2,9 @@ import { testUser } from '../../constants/testData';
 var userChangedCb = null;
 
 export const signInCalled = jest.fn();
+
+export const signOut = jest.fn();
+
 import { validEmail, validPassword, invalidPassword, invalidEmail } from '../../constants/testData';
 
 const resetCallBack = () => {
@@ -37,6 +40,10 @@ const authObject = {
     userChangedCb = callback;
     return resetCallBack;
   },
+  signOut: () => {
+    signOut();
+    return Promise.resolve();
+  }
 };
 
 const app = {
@@ -45,5 +52,6 @@ const app = {
     return authObject;
   }
 };
+
 
 export default app;
