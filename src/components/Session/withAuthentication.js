@@ -22,8 +22,8 @@ const withAuthentication = Component => {
         authUser => {
           authUser
             ? this.setState({authUser: authUser})
-            : this.setState({authUser: null}),
-          console.log('LogOut. Redirecting to LandingPage'); 
+            : this.setState({authUser: null});
+          console.log('LogOut. Redirecting to LandingPage');
           this.props.history.push(ROUTES.LANDING);
         },
       );
