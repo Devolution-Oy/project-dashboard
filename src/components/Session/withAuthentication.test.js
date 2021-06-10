@@ -6,6 +6,7 @@ import withAuthentication from './withAuthentication';
 import Firebase, { FirebaseContext } from '../Firebase';
 import { validEmail, validPassword } from '../../constants/testData';
 import { flushPromises } from '../../constants/testData';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const DummyComponent = withAuthentication(
   class dummyComponent extends Component {
@@ -26,7 +27,9 @@ describe('withAuthentication', () => {
     const firebase = new Firebase();
     render(
       <FirebaseContext.Provider value={firebase}>
-        <DummyComponent />
+        <Router>
+          <DummyComponent />
+        </Router>
       </FirebaseContext.Provider>
     );
     expect(screen.getByText('Test user null')).toBeInTheDocument();
