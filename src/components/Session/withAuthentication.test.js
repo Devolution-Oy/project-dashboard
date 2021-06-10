@@ -37,19 +37,4 @@ describe('withAuthentication', () => {
     await flushPromises();
     expect(screen.getByText('Test user set')).toBeInTheDocument();
   });
-  it('Redirect no authenticated user to Landing Page', async () => {
-    const firebase = new Firebase();
-    render(
-      <FirebaseContext.Provider value={firebase}>
-        <Router>
-          <DummyComponent />
-        </Router>
-      </FirebaseContext.Provider>
-    );
-    expect(screen.getByText('Test user null')).toBeInTheDocument();
-    firebase.doSignOut();
-    await flushPromises();
-    expect(screen.getByText('Test user null')).toBeInTheDocument();
-  });
-
 });

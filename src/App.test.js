@@ -39,5 +39,8 @@ describe('App', () => {
     userEvent.click(screen.getByText('Log In'));
     await flushPromises();
     expect(screen.getByTestId('main')).toBeInTheDocument();
+    userEvent.click(screen.getByText('Log Out'));
+    await flushPromises();
+    expect(screen.getByPlaceholderText('Email address')).toBeInTheDocument();
   });
 });
