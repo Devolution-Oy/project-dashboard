@@ -42,6 +42,9 @@ const authObject = {
   },
   signOut: () => {
     signOut();
+    if (userChangedCb) {
+      userChangedCb();
+    }
     return Promise.resolve();
   }
 };
