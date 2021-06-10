@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { withRouter } from 'react-router';
 import AuthContext from './context';
 import { withFirebase } from '../Firebase';
+import * as ROUTES from '../../constants/routes';
+
 
 const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
@@ -14,13 +17,19 @@ const withAuthentication = Component => {
       };
     }
     
+    handleLogout = () => {
+      this.setState({ authUser: null });
+      console.log('LogOut. Redirecting to LandingPage');
+      this.props.history.push(ROUTES.LANDING);
+    }
+    
     componentDidMount() {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           authUser
             ? this.setState({authUser: authUser})
-            : this.setState({authUser: null});
-        },
+            : this.handleLogout(); 
+        }
       );
     }
 
@@ -40,10 +49,13 @@ const withAuthentication = Component => {
     }
   }
   
+  WithAuthentication.contextType = AuthContext;
+
   WithAuthentication.propTypes = {
-    firebase: PropTypes.object
+    firebase: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   };
-  return withFirebase(WithAuthentication);
+  return withRouter(withFirebase(WithAuthentication));
 };
 
 export default withAuthentication;

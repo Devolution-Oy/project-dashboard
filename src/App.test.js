@@ -4,6 +4,7 @@ import App from './App';
 import Firebase, { FirebaseContext } from './components/Firebase';
 import userEvent from '@testing-library/user-event';
 import { flushPromises, validEmail, validPassword } from './constants/testData';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 window.matchMedia = window.matchMedia || function() {
   return {
@@ -17,7 +18,9 @@ describe('App', () => {
   test('renders learn react link', () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </FirebaseContext.Provider>);
     const linkElement = screen.getByTestId(/main-content/i);
     expect(linkElement).toBeInTheDocument();
@@ -26,7 +29,9 @@ describe('App', () => {
   it('Changes view to main after succesfull login', async () => {
     render(
       <FirebaseContext.Provider value={new Firebase()}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </FirebaseContext.Provider>
     );
     userEvent.type(screen.getByPlaceholderText('Email address'), validEmail);
@@ -34,5 +39,8 @@ describe('App', () => {
     userEvent.click(screen.getByText('Log In'));
     await flushPromises();
     expect(screen.getByTestId('main')).toBeInTheDocument();
+    userEvent.click(screen.getByText('Log Out'));
+    await flushPromises();
+    expect(screen.getByPlaceholderText('Email address')).toBeInTheDocument();
   });
 });
