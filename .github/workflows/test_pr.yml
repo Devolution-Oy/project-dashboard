@@ -18,9 +18,9 @@ jobs:
       CI: 1
     steps:
     - uses: actions/checkout@master
-        with:
-            submodules: true
-      - uses: actions/setup-node@master
+      with:
+        submodules: true
+    - uses: actions/setup-node@master
       - name: Install front end dependencies 
         run: npm ci
       - name: Front-end unittests
@@ -64,6 +64,6 @@ jobs:
           label: Test PERCENTAGE
           message: ${{ env.PERCENTAGE }}
           color: green
-          namedLogo: jest  
+          namedLogo: jest    
         
 
