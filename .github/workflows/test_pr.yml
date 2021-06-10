@@ -38,7 +38,7 @@ jobs:
           
 # Only run the coverage once
     name: get value percentage and print
-    run: |
+    run: 
       # var REF = 'refs/pull/27/merge.json';
       REF=${{ github.ref }}
       # console.log('github.ref: ' + REF);
