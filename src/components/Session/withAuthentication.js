@@ -17,15 +17,19 @@ const withAuthentication = Component => {
       };
     }
     
+    handleLogout = () => {
+      this.setState({ authUser: null });
+      console.log('LogOut. Redirecting to LandingPage');
+      this.props.history.push(ROUTES.LANDING);
+    }
+    
     componentDidMount() {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           authUser
             ? this.setState({authUser: authUser})
-            : this.setState({authUser: null});
-          console.log('LogOut. Redirecting to LandingPage');
-          this.props.history.push(ROUTES.LANDING);
-        },
+            : this.handleLogout(); 
+        }
       );
     }
 
