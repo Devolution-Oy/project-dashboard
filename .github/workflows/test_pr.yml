@@ -41,7 +41,7 @@ jobs:
       name: get value percentage and print
       run: |
         PERCENTAGE=$(npm test -- --coverage --coverageReporter='text-summary' | grep 'All files' | cut -d '|' -f 5)
-        echo $PERCENTAGE >> $GITHUB_ENV 
+        echo "PERCENTAGE" >> $GITHUB_ENV 
 
       name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.0.0
