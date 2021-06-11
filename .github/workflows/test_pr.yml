@@ -54,7 +54,7 @@ jobs:
           echo "COVERAGEBADGE=$(echo ${COVERAGEBADGE})" >> $GITHUB_ENV
           PERCENTAGE=$(npm test -- --coverage --coverageReporter='text-summary' | grep 'All files' | cut -d '|' -f 5)
           echo $PERCENTAGE
-          echo "COVERAGE=$PERCENTAGE" >> $GITHUB_ENV
+          echo "COVERAGE=$(echo ${PERCENTAGE})" >> $GITHUB
           echo $COVERAGE
 
       - name: Create the Badge
@@ -63,8 +63,8 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 97cd1718d218b973104e73446b5cdeec
           filename: project-dashboard__${{ env.COVERAGEBADGE }}.json
-          label: Test Coverage Badge with PERCENTAGE
-          message: ${{ env.PERCENTAGE }}
+          label: Test Coverage
+          message: ${{ env.COVERAGE }}
           color: green
           namedLogo: jest              
       
