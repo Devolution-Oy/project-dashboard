@@ -54,7 +54,7 @@ jobs:
           echo "COVERAGEBADGE=$(echo ${COVERAGEBADGE})" >> $GITHUB_ENV
           PERCENTAGE=$(npm test -- --coverage --coverageReporter='text-summary' | grep 'All files' | cut -d '|' -f 5)
           echo $PERCENTAGE
-          echo "COVERAGE=$(echo ${PERCENTAGE})" >> $GITHUB
+          echo "COVERAGE=$(echo ${PERCENTAGE})" >> $GITHUB_ENV
           echo $COVERAGE
 
       - name: Create the Badge
