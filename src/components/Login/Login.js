@@ -15,6 +15,16 @@ class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    this.listener = this.props.firebase.auth.onAuthStateChanged(
+      authUser => {
+        authUser
+          ? this.props.history.push(ROUTES.MAIN)
+          : null;
+      }
+    );
+  }
+
   login = () => {
     const { email, password } = this.state;
     this.props.firebase.login(email, password).then(res => {
