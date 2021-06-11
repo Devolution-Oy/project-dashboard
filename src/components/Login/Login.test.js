@@ -94,5 +94,4 @@ describe('Login Component', () => {
     const error = await screen.findByText('Unknown error.');
     expect(error).toBeTruthy();
   });
-
 });

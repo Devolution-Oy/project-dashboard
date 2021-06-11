@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './Login.css';
 import { withRouter } from 'react-router';
 import { withFirebase} from '../Firebase';
+import AuthContext from '../Session/context';
 import PropTypes from 'prop-types';
 import * as ROUTES from '../../constants/routes';
 
 class Login extends Component {
+  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,16 +15,6 @@ class Login extends Component {
       password: '',
       error: ''
     };
-  }
-
-  componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.props.history.push(ROUTES.MAIN)
-          : null;
-      }
-    );
   }
 
   login = () => {
@@ -51,6 +43,10 @@ class Login extends Component {
   }
 
   render() {
+    const authUser = this.context;
+    if (authUser) {
+      this.props.history.push(ROUTES.MAIN);
+    }
     return (
       <div className="LoginAll">
         <div className="inputCenter">
