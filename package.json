@@ -48,7 +48,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "/*.{js,jsx}",
+      "src/**/*.{js,jsx}",
       "!/node_modules/**",
       "!src/index.js",
       "!src/reportWebVitals.js"
